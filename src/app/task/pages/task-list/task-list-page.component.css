@@ -1,0 +1,19 @@
+.task-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.greeting {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+}
+
+@media (max-width: 600px) {
+  .task-container {
+    grid-template-columns: 90vw;
+    gap: 10px;
+  }
+}
