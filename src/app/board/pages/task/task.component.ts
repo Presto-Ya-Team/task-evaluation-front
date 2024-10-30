@@ -16,8 +16,8 @@ import {delay, Subject, takeUntil} from "rxjs";
 export class TaskComponent implements OnInit, OnDestroy {
 
   public isLoadingTasks: boolean;
-  public errorMessage: string | null = null;
-  public tasks: Task[]=[];
+  public errorMessage: string | null;
+  public tasks: Task[];
 
   private taskService = inject(TaskService);
   private destroy$ = new Subject<void>();
