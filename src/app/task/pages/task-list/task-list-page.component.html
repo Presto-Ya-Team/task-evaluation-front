@@ -1,0 +1,20 @@
+<h1 class="greeting">¡Bienvenido a la lista de tareas!</h1>
+
+<div class="task-container">
+  @if (isLoading()) {
+    <task-card-skeleton></task-card-skeleton>
+    <task-card-skeleton></task-card-skeleton>
+  } @else if (isError()){
+    <p>Opps! Algo salio mal</p>
+    <button (click)="loadTasks()">Reintentar</button>
+  } @else {
+    @for (task of tasks(); track task.id) {
+      <task-card [task]="task"></task-card>
+    } @empty {
+      <p>Oops! Aun no hay tareas</p>
+    }
+  }
+</div>
+
+
+
