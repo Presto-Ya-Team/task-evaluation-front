@@ -1,0 +1,13 @@
+<div *ngIf="isLoadingTasks && errorMessage === null">Cargando...</div>
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+<div *ngIf="!isLoadingTasks && !errorMessage">
+  <div class="task-list-container">
+    <h2>Task list</h2>
+    <ul class="task-list">
+      <li *ngFor="let task of tasks" [class.completed]="task.status">
+        <span class="task-name">{{ task.name }}</span>
+        <span class="task-due-date"> (due date: {{ task.due_date | date:'short' }})</span>
+      </li>
+    </ul>
+  </div>
+</div>

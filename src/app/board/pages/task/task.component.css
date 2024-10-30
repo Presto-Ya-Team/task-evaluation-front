@@ -1,0 +1,45 @@
+.task-list-container {
+  max-width: 80%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-list li {
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-list li:last-child {
+  border-bottom: none;
+}
+
+.task-name {
+  font-size: medium;
+  color: #333;
+}
+
+.task-due-date {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #434242;
+}
