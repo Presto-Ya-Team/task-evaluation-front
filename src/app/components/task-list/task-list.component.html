@@ -1,0 +1,23 @@
+<h2>Lista de Tareas</h2>
+
+<div *ngIf="loading">Cargando tareas...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<table *ngIf="tasks.length > 0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Fecha Límite</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let task of tasks">
+            <td>{{ task.id }}</td>
+            <td>{{ task.name }}</td>
+            <td>{{ task.due_date }}</td>
+            <td>{{ task.status }}</td>
+        </tr>
+    </tbody>
+</table>
