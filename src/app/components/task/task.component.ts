@@ -19,6 +19,9 @@ export class TaskComponent implements OnInit{
     this.taskService.getTasks().subscribe({
       next: (tasks) => {
         this.tasks = tasks;
+      },
+      error: (err) => {
+        console.error('No se encontraron tareas, ', err);
       }
     });
   }
