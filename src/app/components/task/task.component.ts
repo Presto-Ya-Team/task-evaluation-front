@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-task',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [CommonModule, HttpClientModule],
   templateUrl: './task.component.html',
   styleUrl: './task.component.css'
 })
