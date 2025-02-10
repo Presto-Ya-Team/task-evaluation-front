@@ -1,0 +1,13 @@
+<div *ngIf="tasks.length > 0">
+    <ul>
+      <li *ngFor="let task of tasks">
+        <p><strong>ID:</strong> {{ task.id }}</p>
+        <p><strong>Name:</strong> {{ task.name }}</p>
+        <p><strong>Due Date:</strong> {{ task.due_date }}</p>
+        <p><strong>Status:</strong> {{ task.status }}</p>
+        <hr>
+      </li>
+    </ul>
+</div>
+
+  
