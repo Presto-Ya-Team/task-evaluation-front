@@ -1,1 +1,9 @@
-<p>tasks works!</p>
+<h2>Lista de Tareas</h2>
+
+<ul *ngIf="tasks.length">
+  <li *ngFor="let task of tasks">
+    <span>{{ task.name }}</span> 
+    <span>{{ task.dueDate }}</span> 
+    <span>{{ task.status }}</span>
+  </li>
+</ul>
