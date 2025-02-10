@@ -1,9 +1,19 @@
 <h2>Lista de Tareas</h2>
 
-<ul *ngIf="tasks.length">
-  <li *ngFor="let task of tasks">
-    <p>{{ task.name }}</p> 
-    <p>{{ task.dueDate }}</p> 
-    <p>{{ task.status }}</p>
-  </li>
-</ul>
+<div *ngIf="loading">
+  <p>Cargando tareas...</p>
+</div>
+
+<div *ngIf="!loading">
+  <p *ngIf="error">Hubo un error al cargar las tareas</p>
+
+  <ul *ngIf="tasks.length">
+    <li *ngFor="let task of tasks">
+      <p>{{ task.name }}</p> 
+      <p>{{ task.dueDate }}</p> 
+      <p>{{ task.status }}</p>
+    </li>
+  </ul>
+
+  <p *ngIf="tasks.length === 0 && !error">No hay tareas</p>
+</div>
