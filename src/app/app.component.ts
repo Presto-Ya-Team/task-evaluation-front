@@ -1,20 +1,40 @@
 import { Component } from '@angular/core';
 import { Task } from './task.model';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { TasksService } from './tasks.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
+  providers: [TasksService],
 })
 export class AppComponent {
   title = 'task-evaluation-front';
   
-  tasks: Task[] = [
-    new Task(1, 'Tarea 1', new Date('2025-02-15'), 'pending'),
-    new Task(2, 'Tarea 2', new Date('2025-02-20'), 'completed'),
-    new Task(3, 'Tarea 3', new Date('2025-02-25'), 'pending'),
-  ];
+  tasks: Task[] = [];
+  loading = false;
+  error: string | null = null;
+
+  constructor(private tasksService: TasksService) {}
+
+  ngOnInit(): void {
+    this.loading = true;
+    this.tasksService.getTasks().subscribe(
+      (data) => {
+        console.log('Datos recibidos:', data);
+        this.tasks = data; // Asegurar que se asigna el array recibido
+        this.loading = false;
+      },
+      (err) => {
+        console.error('Error al cargar tareas:', err);
+        this.error = 'Error al cargar las tareas';
+        this.loading = false;
+      }
+    );
+  }
+  
 }
