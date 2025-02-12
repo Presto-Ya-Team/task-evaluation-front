@@ -26,7 +26,7 @@ export class AppComponent {
     this.tasksService.getTasks().subscribe(
       (data) => {
         console.log('Datos recibidos:', data);
-        this.tasks = data; // Asegurar que se asigna el array recibido
+        this.tasks = data;
         this.loading = false;
       },
       (err) => {
